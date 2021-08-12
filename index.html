@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mancala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amarante&family=Montserrat:wght@500&family=Baloo+2:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            text-align: center;
+            background-color: rgb(210, 180, 140);
+        }
+        h1 {
+            font-family: 'Amarante', cursive;
+            font-size: 60px;
+        }
+        h2 {
+            margin-bottom: 40px;
+        }
+        a {
+            background-color: #A38560;
+            border: #230903 solid 5px;
+            padding-right: 50px;
+            padding-left: 50px;
+            font-family: 'Merienda', cursive;
+            font-size: 40px;
+            text-decoration: none;
+            color: white;
+        }
+        p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            color: #FEFFEA;
+        }
+        .header p {
+            font-family: 'Baloo 2', cursive;
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #FEFFEA;
+            text-shadow:
+                    2px 0 #230903,
+                    0 2px #230903,
+                    -2px 0 #230903,
+                    0 -2px #230903,
+                    2px 2px #230903,
+                    2px -2px #230903,
+                    -2px 2px #230903,
+                    -2px -2px #230903
+        }
+        .reset button {
+            margin: auto;
+            margin-top: 40px;
+            padding: 0;
+            width: 170px;
+            background-color: #A38560;
+            border: #230903 solid 5px;
+            text-align: center;
+            font-family: 'Merienda', cursive;
+            font-size: 30px;
+            color: white;
+        }
+        button {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            padding: 20px;
+        }
+        .board {
+            width: 75%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 25% 50% 25%;
+            grid-template-rows: auto;
+            grid-template-areas: ". p2Pits ."
+                                 "p2Score . p1Score"
+                                 ". p1Pits .";
+
+            padding: 20px;
+            background-color: #846C5B;
+            border: #4B4237 solid 10px;
+            border-radius: 40px;
+        }
+        .p1Score {
+            grid-area: p1Score;
+        }
+        .p2Score {
+            grid-area: p2Score;
+        }
+        .p1Pits {
+            grid-area: p1Pits;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "pit1 pit2 pit3 pit4 pit5 pit6"
+        }
+        .p2Pits {
+            grid-area: p2Pits;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "pit6 pit5 pit4 pit3 pit2 pit1"
+        }
+
+    </style>
+</head>
+<body>
+    <script type="text/javascript" src="mancala.js"></script>
+    <div class="header">
+        <h1>
+            Welcome to Mancala
+        </h1>
+        <h2>
+            <a href="rules.html">The Rules</a>
+        </h2>
+        <p id="winMessage">
+
+        </p>
+    </div>
+    <div class="board">
+        <div class="p1Score" id="p1Score" style="text-shadow: 0 0 10px white">
+            <p id="6">0</p>
+        </div>
+        <div class="p1Pits">
+            <div class="pit1">
+                <button type="button" id="0" onclick="moveMarbles(0)">4</button>
+            </div>
+            <div class="pit2">
+                <button type="button" id="1" onclick="moveMarbles(1)">4</button>
+            </div>
+            <div class="pit3">
+                <button type="button" id="2" onclick="moveMarbles(2)">4</button>
+            </div>
+            <div class="pit4">
+                <button type="button" id="3" onclick="moveMarbles(3)">4</button>
+            </div>
+            <div class="pit5">
+                <button type="button" id="4" onclick="moveMarbles(4)">4</button>
+            </div>
+            <div class="pit6">
+                <button type="button" id="5" onclick="moveMarbles(5)">4</button>
+            </div>
+        </div>
+
+        <div class="p2Score" id="p2Score">
+            <p id="13">0</p>
+        </div>
+        <div class="p2Pits">
+            <div class="pit6">
+                <button type="button" id="12" onclick="moveMarbles(12)">4</button>
+            </div>
+            <div class="pit5">
+                <button type="button" id="11" onclick="moveMarbles(11)">4</button>
+            </div>
+            <div class="pit4">
+                <button type="button" id="10" onclick="moveMarbles(10)">4</button>
+            </div>
+            <div class="pit3">
+                <button type="button" id="9" onclick="moveMarbles(9)">4</button>
+            </div>
+            <div class="pit2">
+                <button type="button" id="8" onclick="moveMarbles(8)">4</button>
+            </div>
+            <div class="pit1">
+                <button type="button" id="7" onclick="moveMarbles(7)">4</button>
+            </div>
+        </div>
+    </div>
+    <div class="reset" onclick="reset()">
+        <button type="button" onclick="reset()">Reset</button>
+    </div>
+</body>
+</html>
